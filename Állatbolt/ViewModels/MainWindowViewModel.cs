@@ -5,10 +5,11 @@ using AllatboltProject.ViewModels.Animals;
 using AllatboltProject.ViewModels.Equipments;
 using AllatboltProject.ViewModels.Users;
 using AllatboltProject.ViewModels.Workers;
+using AllatboltProject.ViewModels.Management;
 
 namespace AllatboltProject.ViewModels
 {
-    partial class  MainWindowViewModel : BaseViewModel
+    public partial class  MainWindowViewModel : BaseViewModel
     {
         [ObservableProperty]
         private BaseViewModel _childViewModel;
@@ -18,8 +19,29 @@ namespace AllatboltProject.ViewModels
 
         public MainWindowViewModel()
         {
-            _childViewModel = new WelcomeViewModel();
+            _childViewModel = new WelcomeLoginViewModel();
         }
+
+        [RelayCommand]
+        public void ShowWelcomeView()
+        {
+            ChildViewModel = new WelcomeViewModel();
+            StatusBarText = "Sikeres belépés!";
+        }
+
+        [RelayCommand]
+        public void ShowRegistrationView()
+        {
+            ChildViewModel = new UserRegistrationViewModel();
+        }
+
+        [RelayCommand]
+        public void ShowLoginView()
+        {
+            ChildViewModel = new UserLoginViewModel();
+        }
+
+        //-------------------------------------------------------
 
         [RelayCommand]
         private void ShowHorseView()

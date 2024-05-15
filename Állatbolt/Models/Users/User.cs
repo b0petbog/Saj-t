@@ -24,7 +24,7 @@ namespace AllatboltProject.Users
         public int BadPoints { get; set; }
         public bool IsAdmin {  get; set; }
 
-        public User(Guid id, string firstname, string lastname, bool isFemale, DateTime birthsday, string phoneNumber, string email, string address, string username, string password, ImageSource imageSrc)
+        public User(Guid id, string firstname, string lastname, bool isFemale, DateTime birthsday, string phoneNumber, string email, string address, string username, string password, ImageSource imageSrc, bool isAdmin)
         {
             Id = id;
             FirstName = firstname;
@@ -37,6 +37,7 @@ namespace AllatboltProject.Users
             Username = username;
             Password = password;
             ImageSrc = imageSrc;
+            IsAdmin = isAdmin;
         }
 
         public User()
@@ -52,7 +53,6 @@ namespace AllatboltProject.Users
             Username = string.Empty;
             Password = string.Empty;
             ImageSrc = new BitmapImage(new Uri("/Image/default.png", UriKind.Relative));
-            BadPoints = 0;
             IsAdmin = false;
         }
 

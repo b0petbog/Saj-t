@@ -44,6 +44,7 @@
     <None Remove="Image\WelcomePictures\new.png" />
     <None Remove="Image\wood.png" />
     <None Remove="ViewModels\Animals\HorseViewModel.cs~RF47e2a66e.TMP" />
+    <None Remove="Views\Management\2eqgfaz4.qse~" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />

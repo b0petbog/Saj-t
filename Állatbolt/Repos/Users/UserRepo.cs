@@ -28,7 +28,23 @@ namespace AllatboltProject.Repos
                 Address = "Szeged",
                 Username = "PetBog0214",
                 Password = "varazsszo123",
-                ImageSrc = new BitmapImage(new Uri("/Image/default.png", UriKind.Relative))
+                ImageSrc = new BitmapImage(new Uri("/Image/default.png", UriKind.Relative)),
+                IsAdmin = true
+            },
+            new()
+            {
+                Id = Guid.Empty,
+                FirstName = "Mészáros",
+                LastName = "Eszter",
+                IsFemale = true,
+                BirthsDay = new DateTime(1982, 02, 14),
+                PhoneNumber = "",
+                Email = "esztike14@gmail.com",
+                Address = "",
+                Username = "esztike14",
+                Password = "varazsszo123",
+                ImageSrc = new BitmapImage(new Uri("/Image/default.png", UriKind.Relative)),
+                IsAdmin = false
             }
         };
         #endregion

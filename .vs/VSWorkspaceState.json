@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\\u00C1llatbolt",
+    "\\\u00C1llatbolt\\Repos",
+    "\\\u00C1llatbolt\\Repos\\Workers"
   ],
+  "SelectedNode": "\\\u00C1llatbolt\\Repos\\Workers\\GroomerRepo.cs",
   "PreviewInSolutionExplorer": false
 }

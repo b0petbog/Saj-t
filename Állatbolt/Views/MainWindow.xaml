@@ -12,6 +12,8 @@
         xmlns:userviewmondel="clr-namespace:AllatboltProject.ViewModels.Users"
         xmlns:workerview="clr-namespace:AllatboltProject.Views.Workers"
         xmlns:workerviewmondel="clr-namespace:AllatboltProject.ViewModels.Workers"
+        xmlns:managementview="clr-namespace:AllatboltProject.Views.Management"
+        xmlns:managementviewmondel="clr-namespace:AllatboltProject.ViewModels.Management"
         xmlns:viewmodel="clr-namespace:AllatboltProject.ViewModels"
         xmlns:view="clr-namespace:AllatboltProject.Views"
         mc:Ignorable="d"
@@ -29,6 +31,12 @@
 
         <DataTemplate DataType="{x:Type viewmodel:WelcomeViewModel}">
             <view:WelcomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:WelcomeLoginViewModel}">
+            <view:WelcomeLoginView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type managementviewmodel:UserLoginViewModel}">
+            <managementview:UserLoginView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type animalsviewmodel:HorseViewModel}">
             <animalview:HorseView/>
