@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="AllatboltProject.Views.Equipments.BeddingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:local="clr-namespace:AllatboltProject.Views.Equipments"
+         xmlns:viewmodel="clr-namespace:AllatboltProject.ViewModels.Equipments"
+         mc:Ignorable="d" 
+         d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewmodel:BeddingViewModel />
+    </UserControl.DataContext>
+    <Grid Margin="5 5 5 5" HorizontalAlignment="Center">
+        <Grid.Background>
+            <SolidColorBrush Color="White" Opacity="0.3"></SolidColorBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Adatok</Label>
+        <Label Grid.Row="1" Grid.Column="0">Kép:</Label>
+        <Label Grid.Row="3" Grid.Column="0">Márka:</Label>
+        <Label Grid.Row="4" Grid.Column="0">Név:</Label>
+        <Label Grid.Row="5" Grid.Column="0">Térfogat:</Label>
+        <Label Grid.Row="6" Grid.Column="0">Leírás:</Label>
+        <Label Grid.Row="7" Grid.Column="0">Alapanyag:</Label>
+        <Label Grid.Row="8" Grid.Column="0">Ár:</Label>
+        <Label Grid.Row="9" Grid.Column="0">Elérhetőség:</Label>
+        <Button Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Content="Feltöltés" Command="{Binding UploadImageCommand}" CommandParameter="{Binding SelectedBedding}"></Button>
+        <Image Grid.Row="2" Grid.Column="1" Height="100px" Grid.ColumnSpan="2" x:Name="selectedImage" Source="{Binding SelectedBedding.ImageSrc}" />
+        <TextBox Background="#ebe6df" Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedBedding.Brand}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="4" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedBedding.Name}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="5" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedBedding.Volume}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="6" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedBedding.Description}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="7" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedBedding.Material}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="8" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedBedding.Price}"></TextBox>
+        <StackPanel Grid.Row="9" Grid.Column="1">
+            <RadioButton GroupName="Avability" Margin="2 4 2 2" IsChecked="{Binding SelectedBedding.Avability}">Elérhető</RadioButton>
+            <RadioButton GroupName="Avability" Margin="2 4 2 2">Elkelt</RadioButton>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="10" Grid.ColumnSpan="2">
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="SlateGray" BorderBrush="Black" MinWidth="80" Content="Új adat" Command="{Binding DoNewBeddingCommand}"/>
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="#82c77b" BorderBrush="Black" MinWidth="80" Content="Mentés" Command="{Binding DoSaveCommand}" CommandParameter="{Binding SelectedFood}"/>
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="#b33939" BorderBrush="Black" MinWidth="80" Content="Törlés" Command="{Binding DoRemoveCommand}" CommandParameter="{Binding SelectedFood}"/>
+        </StackPanel>
+
+        <Label Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Rágcsáló almok a kereskedésben:</Label>
+
+        <ListBox Background="#ebe6df" Grid.Row="12"
+         Grid.ColumnSpan="3" 
+         Margin="2,2,2,2"
+         ItemsSource="{Binding Beddings}"
+         SelectedItem="{Binding SelectedBedding}"/>
+
+        <StatusBar Grid.Row="13" Grid.ColumnSpan="2">
+            <StatusBar.Background>
+                <SolidColorBrush Color="#f7be68" Opacity="0.6"></SolidColorBrush>
+            </StatusBar.Background>
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding StatusBarText}"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</UserControl>

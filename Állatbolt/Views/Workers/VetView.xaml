@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="AllatboltProject.Views.Workers.VetView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:xwpftk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AllatboltProject.Views.Workers"
+             xmlns:viewmodel="clr-namespace:AllatboltProject.ViewModels.Workers"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewmodel:VetViewModel />
+    </UserControl.DataContext>
+    <Grid Margin="5 5 5 5" HorizontalAlignment="Center">
+        <Grid.Background>
+            <SolidColorBrush Color="White" Opacity="0.3"></SolidColorBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Adatok</Label>
+        <Label Grid.Row="1" Grid.Column="0">Kép:</Label>
+        <Label Grid.Row="3" Grid.Column="0">Vezetéknév:</Label>
+        <Label Grid.Row="4" Grid.Column="0">Keresztnév:</Label>
+        <Label Grid.Row="5" Grid.Column="0">Nem:</Label>
+        <Label Grid.Row="6" Grid.Column="0">Telefonszám:</Label>
+        <Label Grid.Row="7" Grid.Column="0">E-mail cím:</Label>
+        <Label Grid.Row="8" Grid.Column="0">Állatok:</Label>
+        <Label Grid.Row="9" Grid.Column="0">Weboldal:</Label>
+        <Label Grid.Row="10" Grid.Column="0">Felhasználónév:</Label>
+        <Label Grid.Row="11" Grid.Column="0">Jelszó:</Label>
+        <Label Grid.Row="12" Grid.Column="0">Adminisztrátori hozzáférés:</Label>
+        <Button Grid.Row="1" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Content="Feltöltés" Command="{Binding UploadImageCommand}" CommandParameter="{Binding SelectedVet}"></Button>
+        <Image Grid.Row="2" Grid.Column="1" Height="100px" Grid.ColumnSpan="2" x:Name="selectedImage" Source="{Binding SelectedVet.ImageSrc}" />
+        <TextBox Background="#ebe6df" Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.FirstName}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="4" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.LastName}"></TextBox>
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <RadioButton GroupName="Gender" Margin="2 4 2 2" IsChecked="{Binding SelectedVet.IsFemale}">Nő</RadioButton>
+            <RadioButton GroupName="Gender" Margin="2 4 2 2">Férfi</RadioButton>
+        </StackPanel>
+        <TextBox Background="#ebe6df" Grid.Row="6" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.PhoneNumber}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="7" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.Email}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="8" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.Animals}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="9" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.Webpage}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="10" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.Username}"></TextBox>
+        <TextBox Background="#ebe6df" Grid.Row="11" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedVet.Password}"></TextBox>
+        <StackPanel Grid.Row="12" Grid.Column="1">
+            <RadioButton GroupName="Admin" Margin="2 4 2 2" IsChecked="{Binding SelectedVet.IsAdmin}">Igen</RadioButton>
+            <RadioButton GroupName="Admin" Margin="2 4 2 2">Nem</RadioButton>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="13" Grid.ColumnSpan="2">
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="SlateGray" BorderBrush="Black" MinWidth="80" Content="Új adat" Command="{Binding DoNewVetCommand}"/>
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="#82c77b" BorderBrush="Black" MinWidth="80" Content="Mentés" Command="{Binding DoSaveCommand}" CommandParameter="{Binding SelectedVet}"/>
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="#b33939" BorderBrush="Black" MinWidth="80" Content="Törlés" Command="{Binding DoRemoveCommand}" CommandParameter="{Binding SelectedVet}"/>
+        </StackPanel>
+
+        <Label Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Állatorvosok:</Label>
+
+        <ListBox Background="#ebe6df" Grid.Row="15"
+         Grid.ColumnSpan="3" 
+         Margin="2,2,2,2"
+         ItemsSource="{Binding Vets}"
+         SelectedItem="{Binding SelectedVet}"/>
+
+        <StatusBar Grid.Row="16" Grid.ColumnSpan="2">
+            <StatusBar.Background>
+                <SolidColorBrush Color="#f7be68" Opacity="0.6"></SolidColorBrush>
+            </StatusBar.Background>
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding StatusBarText}"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</UserControl>

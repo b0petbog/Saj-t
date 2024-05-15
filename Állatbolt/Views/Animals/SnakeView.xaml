@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="AllatboltProject.Views.Animals.SnakeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AllatboltProject.Views.Animals"
+             xmlns:viewmodel="clr-namespace:AllatboltProject.ViewModels.Animals"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewmodel:SnakeViewModel />
+    </UserControl.DataContext>
+    <Grid Margin="5 5 5 5" HorizontalAlignment="Center">
+        <Grid.Background>
+            <SolidColorBrush Color="White" Opacity="0.3"></SolidColorBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Expander Grid.Row="1" Grid.ColumnSpan="2" Header="Keresés és szűrés">
+            <Expander.Background>
+                <SolidColorBrush Color="Brown"  Opacity="0.7"></SolidColorBrush>
+            </Expander.Background>
+            <Grid Margin="5 5 5 5" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image x:Name="horse" Width="100" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" >
+                    <Image.Source>
+                        <BitmapImage UriSource="/Image/AnimalsExpander/snake.png" />
+                    </Image.Source>
+                </Image>
+                <Label Grid.Row="0" Grid.Column="1" Content="Keresett fajta: "></Label>
+                <ComboBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" MinWidth="150" Margin="4"
+                    ItemsSource="{Binding SnakeSpecies}"
+                    SelectedItem="{Binding SearchedSnakeSpecies}">  
+                </ComboBox>
+                <CheckBox Grid.Row="1" Grid.Column="1" Margin="4" IsChecked="{Binding IsGenderSearchingEnabled}">Nem szerinti szűrés</CheckBox>
+                <RadioButton Grid.Row="1" Grid.Column="2" Margin="4" GroupName="SearchedGender" IsChecked="{Binding IsFemale}">Nőstény</RadioButton>
+                <RadioButton Grid.Row="1" Grid.Column="3" Margin="4" GroupName="SearchedGender">Hím</RadioButton>
+                <CheckBox Grid.Row="2" Grid.Column="1" Margin="4" IsChecked="{Binding IsAvabilitySearchingEnabled}">Elérhetőség szűrés</CheckBox>
+                <RadioButton Grid.Row="2" Grid.Column="2" Margin="4" GroupName="SearchedGender" IsChecked="{Binding IsAvailable}">Elérhető</RadioButton>
+                <RadioButton Grid.Row="2" Grid.Column="3" Margin="4" GroupName="SearchedGender">Elkelt</RadioButton>
+                <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Content="Szűrés" MinWidth="80" Margin="20 2 20 2" Command="{Binding FilteringCommand}"></Button>
+            </Grid>
+        </Expander>
+        <Label Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Adatok</Label>
+        <Label Grid.Row="2" Grid.Column="0">Név:</Label>
+        <Label Grid.Row="3" Grid.Column="0">Születési dátum:</Label>
+        <Label Grid.Row="4" Grid.Column="0">Súly (kg):</Label>
+        <Label Grid.Row="5" Grid.Column="0">Faj:</Label>
+        <Label Grid.Row="6" Grid.Column="0">Nem:</Label>
+        <Label Grid.Row="7" Grid.Column="0">Elérhetőség:</Label>
+        <Label Grid.Row="8" Grid.Column="0">Ár:</Label>
+        <TextBox Background="#ebe6df" Grid.Row="2" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedSnake.Name}"></TextBox>
+        <DatePicker Background="#ebe6df" Grid.Row="3" Grid.Column="1" Margin="2 2 2 2" SelectedDate="{Binding SelectedSnake.BirthsDay}"></DatePicker>
+        <TextBox Background="#ebe6df" Grid.Row="4" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedSnake.Weigh}"></TextBox>
+        <ComboBox Background="#ebe6df" Grid.Row="5" Grid.Column="1" Margin="2 2 2 2"
+        ItemsSource="{Binding SnakeSpecies}"
+        SelectedItem="{Binding SelectedSnake.Species}">
+        </ComboBox>
+        <StackPanel Grid.Row="6" Grid.Column="1">
+            <RadioButton GroupName="Gender" Margin="2 6 2 2" IsChecked="{Binding SelectedSnake.IsFemale}">Nőstény</RadioButton>
+            <RadioButton GroupName="Gender" Margin="2 6 2 2" >Hím</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Grid.Column="1">
+            <RadioButton GroupName="Avability" Margin="2 4 2 2" IsChecked="{Binding SelectedSnake.IsAvailable}">Elérhető</RadioButton>
+            <RadioButton GroupName="Avability" Margin="2 4 2 2">Elkelt</RadioButton>
+        </StackPanel>
+        <TextBox Background="#ebe6df" Grid.Row="8" Grid.Column="1" Margin="2 2 2 2" Padding="0 2" Text="{Binding SelectedSnake.Price}"></TextBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.ColumnSpan="2">
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="SlateGray" BorderBrush="Black" MinWidth="80" Content="Új adat" Command="{Binding DoNewSnakeCommand}"/>
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="#82c77b" BorderBrush="Black" MinWidth="80" Content="Mentés" Command="{Binding DoSaveCommand}" CommandParameter="{Binding SelectedSnake}"/>
+            <Button Margin="10" HorizontalAlignment="Right" Foreground="White" Background="#b33939" BorderBrush="Black" MinWidth="80" Content="Törlés" Command="{Binding DoRemoveCommand}" CommandParameter="{Binding SelectedSnake}"/>
+        </StackPanel>
+
+        <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">Kígyóink a kereskedésben:</Label>
+
+        <ListBox Background="#ebe6df" Grid.Row="11"
+         Grid.ColumnSpan="2" 
+         Margin="2 2 2 2"
+         ItemsSource="{Binding Snakes}"
+         SelectedItem="{Binding SelectedSnake}"/>
+
+        <StatusBar Grid.Row="13" Grid.ColumnSpan="2">
+            <StatusBar.Background>
+                <SolidColorBrush Color="#f7be68" Opacity="0.6"></SolidColorBrush>
+            </StatusBar.Background>
+            <StatusBarItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding StatusBarText}"/>
+                </StackPanel>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</UserControl>

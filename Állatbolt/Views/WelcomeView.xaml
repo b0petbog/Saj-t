@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="AllatboltProject.Views.WelcomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AllatboltProject.Views"
+             mc:Ignorable="d" 
+             Background="{DynamicResource backgroundImage}"
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <ImageSource x:Key="imgSource">../Image/WelcomePictures/new.png</ImageSource>
+        <ImageBrush x:Key="backgroundImage" ImageSource="{DynamicResource imgSource}"></ImageBrush>
+    </UserControl.Resources>
+    <Grid>
+        <Label FontSize="120" FontFamily="Brush Script MT" FontWeight="Bold" Content="Mancs állatbolt"  HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

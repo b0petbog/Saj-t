@@ -1,0 +1,147 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Image\AnimalsExpander\snake.png" />
+    <None Remove="Image\background.jpg" />
+    <None Remove="Image\Bedding\chipsiSuper.png" />
+    <None Remove="Image\Bedding\dollyForgacs.png" />
+    <None Remove="Image\Bedding\gimbiAlom.png" />
+    <None Remove="Image\Bedding\safebedPapierflocken.png" />
+    <None Remove="Image\briantosDogFood.png" />
+    <None Remove="Image\brownBg.jpg" />
+    <None Remove="Image\bunny.png" />
+    <None Remove="Image\Cages\ferplastRabbit.png" />
+    <None Remove="Image\cat.png" />
+    <None Remove="Image\catTP.png" />
+    <None Remove="Image\color1.png" />
+    <None Remove="Image\color2.png" />
+    <None Remove="Image\colors.png" />
+    <None Remove="Image\default.png" />
+    <None Remove="Image\dog.png" />
+    <None Remove="Image\giraffe.png" />
+    <None Remove="Image\greenBg.jpg" />
+    <None Remove="Image\greyBg.jpg" />
+    <None Remove="Image\guineapigFood.jpg" />
+    <None Remove="Image\hamster.png" />
+    <None Remove="Image\hamsterFood.jpg" />
+    <None Remove="Image\hamsterTP.png" />
+    <None Remove="Image\hedgehogFood.jpg" />
+    <None Remove="Image\horse.jpg" />
+    <None Remove="Image\horseTP.png" />
+    <None Remove="Image\panziFitActiveDogFood.png" />
+    <None Remove="Image\panziRegularDogFood.png" />
+    <None Remove="Image\pedigreeAdultDryFood.png" />
+    <None Remove="Image\redBg.jpg" />
+    <None Remove="Image\smoke.png" />
+    <None Remove="Image\smokeBlack.png" />
+    <None Remove="Image\WelcomePictures\new.png" />
+    <None Remove="Image\wood.png" />
+    <None Remove="ViewModels\Animals\HorseViewModel.cs~RF47e2a66e.TMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\AnimalsExpander\snake.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Bedding\chipsiSuper.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Bedding\dollyForgacs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Bedding\gimbiAlom.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Bedding\safebedPapierflocken.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Cages\ferplastRabbit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\default.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Texture\background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\DogFood\briantosDogFood.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Texture\brownBg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\AnimalsExpander\bunny.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\AnimalsExpander\cat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\WelcomePictures\catTP.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\AnimalsExpander\dog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\AnimalsExpander\giraffe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Texture\greenBg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Texture\greyBg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\RodentFood\guineapigFood.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\AnimalsExpander\hamster.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\RodentFood\hamsterFood.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\WelcomePictures\hamsterTP.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\RodentFood\hedgehogFood.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\AnimalsExpander\horse.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\WelcomePictures\horseTP.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\DogFood\panziFitActiveDogFood.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\DogFood\panziRegularDogFood.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\DogFood\pedigreeAdultDryFood.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Texture\redBg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Texture\wood.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\WelcomePictures\new.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repos\Equipments\Cats\" />
+  </ItemGroup>
+</Project>

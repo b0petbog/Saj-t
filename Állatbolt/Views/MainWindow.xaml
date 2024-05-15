@@ -1,0 +1,148 @@
+﻿<Window x:Class="AllatboltProject.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AllatboltProject.Views"
+        xmlns:animalsviewmodel="clr-namespace:AllatboltProject.ViewModels.Animals"
+        xmlns:animalview="clr-namespace:AllatboltProject.Views.Animals"
+        xmlns:equipmentviewmodel="clr-namespace:AllatboltProject.ViewModels.Equipments"
+        xmlns:equipmentview="clr-namespace:AllatboltProject.Views.Equipments"
+        xmlns:userview="clr-namespace:AllatboltProject.Views.Users"
+        xmlns:userviewmondel="clr-namespace:AllatboltProject.ViewModels.Users"
+        xmlns:workerview="clr-namespace:AllatboltProject.Views.Workers"
+        xmlns:workerviewmondel="clr-namespace:AllatboltProject.ViewModels.Workers"
+        xmlns:viewmodel="clr-namespace:AllatboltProject.ViewModels"
+        xmlns:view="clr-namespace:AllatboltProject.Views"
+        mc:Ignorable="d"
+        Background="{DynamicResource backgroundImage}"
+        Title="Állatbolt" Width="800" Height="450">
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <ImageSource x:Key="imgSource">../Image/Texture/background.jpg</ImageSource>
+        <ImageBrush x:Key="backgroundImage" ImageSource="{DynamicResource imgSource}"></ImageBrush>
+
+        <ImageSource x:Key="woodImgSource">../Image/Texture/wood.png</ImageSource>
+        <ImageBrush x:Key="WoodImage" ImageSource="{DynamicResource woodImgSource}"></ImageBrush>
+
+        <DataTemplate DataType="{x:Type viewmodel:WelcomeViewModel}">
+            <view:WelcomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type animalsviewmodel:HorseViewModel}">
+            <animalview:HorseView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type animalsviewmodel:HamsterViewModel}">
+            <animalview:HamsterView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type animalsviewmodel:CatViewModel}">
+            <animalview:CatView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type animalsviewmodel:DogViewModel}">
+            <animalview:DogView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type animalsviewmodel:BunnyViewModel}">
+            <animalview:BunnyView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type animalsviewmodel:GiraffeViewModel}">
+            <animalview:GiraffeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type animalsviewmodel:SnakeViewModel}">
+            <animalview:SnakeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type equipmentviewmodel:RodentFoodViewModel}">
+            <equipmentview:RodentFoodView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type equipmentviewmodel:RodentCageViewModel}">
+            <equipmentview:RodentCageView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type equipmentviewmodel:BeddingViewModel}">
+            <equipmentview:BeddingView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type equipmentviewmodel:DogFoodViewModel}">
+            <equipmentview:DogFoodView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type workerviewmondel:VetViewModel}">
+            <workerview:VetView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type userviewmondel:UserViewModel}">
+            <userview:UserView/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <Menu Grid.Row="0" Grid.Column="0" Background="{DynamicResource WoodImage}" Foreground="Black" Opacity="0.7">
+            <MenuItem Header="_Főoldal" BorderBrush="Black" Margin="1 1 3 1">
+                <MenuItem.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"></SolidColorBrush>
+                </MenuItem.Background>
+            </MenuItem>
+            <MenuItem  Header="_Állatok" BorderBrush="Black" Margin="1 1 3 1">
+                <MenuItem.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"></SolidColorBrush>
+                </MenuItem.Background>
+                <MenuItem Header="_Hörcsögök" Command="{Binding ShowHamsterViewCommand}" />
+                <MenuItem Header="_Lovak" Command="{Binding ShowHorseViewCommand}" />
+                <MenuItem Header="_Nyulak" Command="{Binding ShowBunnyViewCommand}" />
+                <MenuItem Header="_Macskák" Command="{Binding ShowCatViewCommand}" />
+                <MenuItem Header="_Kutyák" Command="{Binding ShowDogViewCommand}" />
+                <MenuItem Header="_Zsiráfok" Command="{Binding ShowGiraffeViewCommand}" />
+                <MenuItem Header="_Kígyók" Command="{Binding ShowSnakeViewCommand}" />
+            </MenuItem>
+            <MenuItem  Header="_Kiegészítők" BorderBrush="Black" Margin="1 1 3 1">
+                <MenuItem.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"></SolidColorBrush>
+                </MenuItem.Background>
+                <MenuItem Header="_Rágcsálóknak">
+                    <MenuItem Header="_Eleségek" Command="{Binding ShowRodentFoodViewCommand}"/>
+                    <MenuItem Header="_Ketrecek" Command="{Binding ShowRodentCageViewCommand}"/>
+                    <MenuItem Header="_Felszerelés" Command=""/>
+                    <MenuItem Header="_Alom" Command="{Binding ShowBeddingViewCommand}"/>
+                </MenuItem>
+                <MenuItem Header="_Kutyáknak">
+                    <MenuItem Header="_Eleségek" Command="{Binding ShowDogFoodViewCommand}"/>
+                </MenuItem>
+                <MenuItem Header="_Macskáknak">
+
+                </MenuItem>
+                <MenuItem Header="_Madaraknak">
+
+                </MenuItem>
+                <MenuItem Header="_Egzotikus állatoknak">
+                    
+                </MenuItem>
+            </MenuItem>
+            <MenuItem  Header="_Szolgáltatások" BorderBrush="Black" Margin="1 1 3 1">
+                <MenuItem.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"></SolidColorBrush>
+                </MenuItem.Background>
+                <MenuItem Header="_Kozmetika" Command="{Binding ShowCosmeticsViewCommand}"></MenuItem>
+                <MenuItem Header="_Állatorvos" Command="{Binding ShowVetViewCommand}"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Felhasználók" BorderBrush="Black" Margin="1 1 3 1" Command="{Binding ShowUsersViewCommand}">
+                <MenuItem.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"></SolidColorBrush>
+                </MenuItem.Background>
+            </MenuItem>
+            <MenuItem Header="_Mobil funkciók" BorderBrush="Black" Margin="1 1 3 1">
+                <MenuItem.Background>
+                    <SolidColorBrush Color="White" Opacity="0.7"></SolidColorBrush>
+                </MenuItem.Background>
+            </MenuItem>
+        </Menu>
+        <ContentControl Grid.Row="1" Grid.Column="0" Content="{Binding ChildViewModel}"></ContentControl>
+    </Grid>
+</Window>
